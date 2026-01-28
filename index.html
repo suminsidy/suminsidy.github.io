@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Sumin Kim</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <button onclick="showSection('home')">Home</button>
+  <button onclick="showSection('artwork')">Artwork</button>
+  <button onclick="showSection('cv')">CV</button>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="page active home">
+  <div class="slideshow">
+    <img src="images/work1.jpg" class="slide active">
+    <img src="images/work2.jpg" class="slide">
+    <img src="images/work3.jpg" class="slide">
+  </div>
+
+  <div class="home-title">
+    <h1>Sumin Kim</h1>
+  </div>
+</section>
+
+<!-- ARTWORK -->
+<section id="artwork" class="page">
+  <h1 class="page-title">ARTWORK</h1>
+  <div class="gallery">
+    <img src="https://www.are.na/block/43055663"
+     onclick="openModal(this)"
+     data-title="CRACK!"
+     data-caption="2025, 광목천 위에 동양화 물감, 파스텔, 193.9 x 130.3 cm.">
+    <img src="https://www.are.na/block/43055667" onclick="openModal(this)">
+    <img src="https://www.are.na/block/43055674" onclick="openModal(this)">
+    <img src="https://www.are.na/block/43055669" onclick="openModal(this)">
+    <img src="https://www.are.na/block/43055681" onclick="openModal(this)">
+    <img src="https://www.are.na/block/43055680" onclick="openModal(this)">
+    <img src="https://www.are.na/block/43055662" onclick="openModal(this)">
+    <img src="https://www.are.na/block/43055682" onclick="openModal(this)">
+    <img src="https://www.are.na/block/43055656" onclick="openModal(this)">
+    <img src="https://www.are.na/block/43055664" onclick="openModal(this)">
+    <img src="https://www.are.na/block/43055660" onclick="openModal(this)">
+    <img src="https://www.are.na/block/43055657" onclick="openModal(this)">
+  </div>
+</section>
+
+<!-- CV -->
+<section id="cv" class="page">
+  <div class="cv-wrapper">
+
+  <!-- 왼쪽: 텍스트 -->
+  <div class="cv-left">
+    김수민 Kim Sumin <span class="cv-birth">(b.2003)</span>
+  </h2>
+
+  <p class="cv-heading">Contact</p>
+  <p class="cv-contact">suminsidy@gmail.com</p>
+  <p class="cv-contact">@suminsidy</p>
+
+  <p class="cv-heading">Education</p>
+  <p class="cv-contact">홍익대학교 미술대학 동양화과</p>
+
+  <p class="cv-heading">Exhibitions</p>
+<p class="cv-contact">2023 HCMY &lt;<em>OUTLANDERS: GATER TOGETHER</em>&gt;</p>
+<p class="cv-contact">2023 홍익대학교 아트앤디자인밸리 개관전</p>
+<p class="cv-contact">2024 서울문화센터 서교 &lt;<em>붉어지고 불거지는</em>&gt;</p>
+<p class="cv-contact">2025 홍익대학교 동양화과 졸업전시 &lt;<em>Inside the Cabinet</em>&gt;</p>
+<p class="cv-contact">2025 신촌문화발전소 &lt;<em>꿈꾸는 사회</em>&gt;</p>
+</div>
+
+ <!-- 오른쪽: 이미지 슬라이드 -->
+    <div class="cv-slider">
+      <div class="cv-slides">
+        <img src="https://www.are.na/block/43055668" class="cv-slide active">
+        <img src="https://www.are.na/block/43055666" class="cv-slide">
+        <img src="https://www.are.na/block/43055665" class="cv-slide">
+      </div>
+
+      <!-- 동그라미 -->
+      <div class="cv-dots">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+        <span class="dot" onclick="goToSlide(2)"></span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- MODAL -->
+<div id="modal">
+  <div class="modal-bg" onclick="closeModal()"></div>
+
+  <div class="modal-content">
+    <img id="modal-img">
+    <div class="modal-text">
+      <h3 id="modal-title"></h3>
+      <p id="modal-caption"></p>
+    </div>
+  </div>
+</div>
+
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// modal
+function openModal(img) {
+  document.getElementById('modal').style.display = 'flex';
+  document.getElementById('modal-img').src = img.src;
+  document.getElementById('modal-title').innerText = img.dataset.title;
+  document.getElementById('modal-caption').innerText = img.dataset.caption;
+}
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+// slideshow (HOME 전용)
+const slides = document.querySelectorAll('#home .slide');
+let currentSlide = 0;
+
+setInterval(() => {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add('active');
+}, 4000);
+</script>
+
+</body>
+</html>
