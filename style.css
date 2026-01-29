@@ -431,3 +431,9 @@ nav button {
 }
 
 
+.gallery.exhibition img {
+  position: static;
+  opacity: 1;
+}
+
+
