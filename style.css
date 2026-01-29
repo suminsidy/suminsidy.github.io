@@ -382,6 +382,30 @@ nav button {
   }
 }
 
+@media (max-width: 768px) {
+
+  #cv .cv-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 사진 + dot 전체 */
+  #cv .cv-slider {
+    order: 1;
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
+
+  /* CV 글 */
+  #cv .cv-text {
+    order: 2;
+  }
+
+  /* dot은 기본 위치 = 사진 아래 */
+  #cv .cv-dots {
+    margin-top: 12px;
+  }
+}
 
 
 
