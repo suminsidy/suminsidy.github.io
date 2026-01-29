@@ -350,4 +350,43 @@ nav button {
   }
 }
 
+@media (max-width: 768px) {
+  nav {
+    position: absolute;   /* fixed → absolute */
+  }
+}
+@media (max-width: 768px) {
+
+  .modal-text {
+    position: static;           /* absolute 해제 */
+    margin-top: 12px;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  #modal-title,
+  #modal-caption {
+    display: inline;            /* 한 줄 */
+    font-size: 12px;            /* 작게 */
+    line-height: 1.4;
+  }
+
+  #modal-title::after {
+    content: ",";             /* 제목과 설명 구분 */
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    height: 85vh;   /* 100vh → 85vh */
+  }
+}
+@media (max-width: 768px) {
+  .slide {
+    object-fit: contain;   /* cover → contain */
+    background: black;     /* 여백 생길 경우 */
+  }
+}
+
+
 
