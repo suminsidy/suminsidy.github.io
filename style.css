@@ -389,14 +389,20 @@ nav button {
     flex-direction: column;
   }
 
-  /* 사진 + dots 먼저 */
   #cv .cv-slider {
     order: 1;
     width: 100%;
     margin-bottom: 32px;
   }
 
-  /* 텍스트는 아래 */
+  #cv .cv-slides {
+    height: 260px;   /* 👈 여기 */
+  }
+
+  #cv .cv-slide {
+    object-fit: contain; /* or cover */
+  }
+
   #cv .cv-text {
     order: 2;
     width: 100%;
