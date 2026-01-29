@@ -407,6 +407,17 @@ nav button {
   }
 }
 
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    gap: 12px;
+  }
+
+  nav button {
+    margin-bottom: 0;
+  }
+}
+
 
 
 
