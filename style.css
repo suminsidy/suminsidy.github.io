@@ -409,31 +409,3 @@ nav button {
   }
 
 }
-/* 전시 전경 제목 */
-.section-title {
-  font-size: 14px;
-  font-weight: 400;
-  margin: 80px 0 24px 0;
-  letter-spacing: 1px;
-}
-
-/* 전시 전경 이미지 그리드 */
-.installation {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.installation img {
-  width: 100%;
-  height: auto;
-  cursor: pointer;
-}
-
-
-.gallery.exhibition img {
-  position: static;
-  opacity: 1;
-}
-
-
