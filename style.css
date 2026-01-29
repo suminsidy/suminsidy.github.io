@@ -1,15 +1,21 @@
+/* =====================
+   BASE
+===================== */
 body {
   margin: 0;
   font-family: Helvetica, Arial, sans-serif;
 }
 
-/* 메뉴 */
+/* =====================
+   NAVIGATION
+===================== */
 nav {
   position: fixed;
   top: 20px;
   left: 20px;
-  z-index: 10;
+  z-index: 100;
 }
+
 nav button {
   display: block;
   margin-bottom: 10px;
@@ -19,143 +25,117 @@ nav button {
   cursor: pointer;
 }
 
-/* 페이지 기본 */
+/* 모든 페이지는 메뉴 아래에서 시작 */
 .page {
   display: none;
   min-height: 100vh;
+  padding-top: 120px;
 }
+
 .page.active {
   display: block;
 }
 
-/* HOME */
+/* =====================
+   HOME
+===================== */
 .home {
   position: relative;
+  height: 100vh;
   overflow: hidden;
 }
 
-/* 슬라이드쇼 */
 .slideshow {
   position: absolute;
   inset: 0;
 }
+
 .slide {
   position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;   /* 🔥 항상 꽉 차게 */
   opacity: 0;
   transition: opacity 2.5s ease;
 }
+
 .slide.active {
   opacity: 1;
 }
 
-/* 홈 타이틀 */
 .home-title {
   position: absolute;
   bottom: 80px;
   left: 60px;
   z-index: 2;
 }
+
 .home-title h1 {
   color: white;
   font-weight: 300;
   letter-spacing: 2px;
 }
 
-/* ARTWORK */
+/* =====================
+   ARTWORK
+===================== */
 #artwork {
   background: white;
-  padding: 120px 60px;
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 60px 120px;
 }
+
+.artwork-title {
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-
-  justify-items: center; /* 👈 핵심 */
-  align-items: center;
 }
+
+.artwork-item {
+  position: relative;
+}
+
 .gallery img {
   width: 100%;
   height: auto;
   cursor: pointer;
 }
 
-/* CV */
+/* 캡션 */
+.caption {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: black;
+}
+
+.caption .eng {
+  font-size: 10px;
+  opacity: 0.6;
+  margin-left: 4px;
+}
+
+/* =====================
+   CV
+===================== */
 #cv {
   background: white;
-  padding: 120px 60px;
+  padding: 0 60px 120px;
 }
-
-/* MODAL 전체 */
-#modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: white;
-  z-index: 20;
-}
-
-/* 클릭 감지 배경 */
-.modal-bg {
-  position: absolute;
-  inset: 0;
-  background: white;
-  z-index: 1;
-  cursor: pointer;
-}
-
-/* 실제 콘텐츠 */
-.modal-content {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none; /* 👈 중요 */
-}
-
-/* 이미지 */
-#modal-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 75%;
-  max-height: 85%;
-  object-fit: contain;
-  pointer-events: auto; /* 👈 다시 클릭 가능 */
-}
-
-/* 텍스트 */
-.modal-text {
-  position: absolute;
-  bottom: 60px;
-  right: 50px;
-  max-width: 300px;
-  font-size: 14px;
-  line-height: 0.8;
-  pointer-events: auto; /* 👈 클릭 가능 */
-  word-break: keep-all;
-  white-space: normal;
-  word-break: normal;
-  overflow-wrap: break-word;
-}
-
-.unit {
-  white-space: nowrap;
-  display: inline-block;
-}
-
-
-/* ===== CV 최종 레이아웃 (이것만 사용) ===== */
 
 #cv .cv-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -164,277 +144,128 @@ nav button {
   width: 420px;
 }
 
-#cv .cv-slider {
-  width: 480px;
-  margin-left: auto;
-}
-
-/* 슬라이드 */
-#cv .cv-slides {
-  position: relative;
-  width: 100%;
-  height: 600px;
-}
-
-#cv .cv-slide {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-#cv .cv-slide.active {
-  opacity: 1;
-}
-
-/* 동그라미 */
-#cv .cv-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 16px;
-}
-
-#cv .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ccc;
-  cursor: pointer;
-}
-
-#cv .dot.active {
-  background: #000;
-}
-
-/* 이름 */
 .cv-name {
   font-size: 20px;
-  font-weight: 400;
   margin-bottom: 40px;
 }
 
-/* (b.2003) */
 .cv-birth {
-  font-size: 16px;
-  font-weight: 300;
-  opacity: 0.8;
-}
-
-/* 섹션 제목 (Contact, Education 등) */
-.cv-heading {
-  font-size: 15px;
-  font-weight: 400;
-  margin-top: 24px;
-  margin-bottom: 6px;
-}
-
-/* 연락처 텍스트 */
-.cv-contact {
   font-size: 14px;
-  font-weight: 300;
   opacity: 0.7;
-  margin: 10px 0;
 }
 
-/* ===== MODAL 작품 정보 ===== */
-
-/* 작품 제목 */
-#modal-title {
-  font-size: 14px;      /* ← 여기서 크기 조절 */
-  font-weight: 400;
-  margin: 0 0 8px 0;
+/* =====================
+   MODAL
+===================== */
+#modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 200;
 }
 
-/* 재료 / 사이즈 캡션 */
-#modal-caption {
-  font-size: 13px;      /* ← 여기서 크기 조절 */
-  font-weight: 300;
+.modal-bg {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.modal-content {
+  position: absolute;
+  inset: 0;
+}
+
+#modal-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 75%;
+  max-height: 85%;
+  object-fit: contain;
+}
+
+/* 캡션 (하단 고정) */
+.modal-text {
+  position: absolute;
+  bottom: 60px;
+  right: 50px;
+  max-width: 320px;
+  font-size: 14px;
   line-height: 1.5;
+}
+
+#modal-title {
+  font-weight: 400;
+}
+
+#modal-caption {
+  font-weight: 300;
   opacity: 0.7;
-  margin: 0;
 }
 
-
-/* =========================
-   MOBILE (max-width: 768px)
-========================= */
+/* =====================
+   MOBILE
+===================== */
 @media (max-width: 768px) {
 
-  /* 전체 여백 줄이기 */
-  #artwork, #cv {
-    padding: 80px 20px;
-  }
-
-  /* 네비게이션 */
-  nav {
-    top: 12px;
-    left: 12px;
-  }
-  nav button {
-    font-size: 14px;
-  }
-
-  /* HOME 타이틀 */
-  .home-title {
-    left: 20px;
-    bottom: 40px;
-  }
-  .home-title h1 {
-    font-size: 22px;
-  }
-
-  /* ARTWORK 그리드 → 2열 */
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  /* ===== CV ===== */
-  #cv .cv-wrapper {
-    flex-direction: column;
-  }
-
-  #cv .cv-left,
-  #cv .cv-slider {
-    width: 100%;
-  }
-
-  #cv .cv-slider {
-    margin-top: 40px;
-  }
-
-  #cv .cv-slides {
-    height: 360px;
-  }
-
-  /* 전시 전경 */
-  .installation {
-    grid-template-columns: 1fr;
-  }
-
-  /* 모달 이미지 */
-  #modal-img,
-  #installation-img {
-    max-width: 90%;
-    max-height: 75%;
-  }
-
-  /* 모달 텍스트 */
-  .modal-text {
-    right: 20px;
-    bottom: 30px;
-    max-width: 240px;
-  }
-
-  /* 슬라이드 화살표 */
-  .arrow.left { left: 12px; }
-  .arrow.right { right: 12px; }
-}
-
-@media (max-width: 768px) {
-
-  /* ===== MOBILE MENU ===== */
+  /* NAV */
   nav {
     top: 16px;
     left: 16px;
   }
 
   nav button {
-    font-size: 16px;          /* 글자 키우기 */
-    padding: 8px 6px;         /* 터치 영역 */
-    margin-bottom: 8px;
-  }
-}
-
-@media (max-width: 768px) {
-  nav {
-    position: absolute;   /* fixed → absolute */
-  }
-}
-@media (max-width: 768px) {
-
-  .modal-text {
-    position: static;           /* absolute 해제 */
-    margin-top: 12px;
-    max-width: 100%;
-    text-align: center;
+    font-size: 16px;
+    margin-bottom: 6px;
   }
 
-  #modal-title,
-  #modal-caption {
-    display: inline;            /* 한 줄 */
-    font-size: 12px;            /* 작게 */
-    line-height: 1.4;
+  /* HOME */
+  .home-title {
+    left: 20px;
+    bottom: 40px;
   }
 
-  #modal-title::after {
-    content: ",";             /* 제목과 설명 구분 */
+  .home-title h1 {
+    font-size: 22px;
   }
-}
 
-@media (max-width: 768px) {
-  .home {
-    height: 85vh;   /* 100vh → 85vh */
+  /* ARTWORK */
+  #artwork {
+    padding: 0 20px 100px;
   }
-}
-@media (max-width: 768px) {
-  .slide {
-    object-fit: contain;   /* cover → contain */
-    background: black;     /* 여백 생길 경우 */
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
-}
 
-.artwork-item {
-  position: relative;
-}
-
-.caption {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  right: 12px;
-  font-size: 12px;
-  line-height: 1.4;
-}
-
-/* 모바일 전용 */
-@media (max-width: 768px) {
   .caption {
     font-size: 11px;
     white-space: nowrap;
   }
 
-  .caption .title,
-  .caption .eng {
-    display: inline;
+  /* CV */
+  #cv {
+    padding: 0 20px 100px;
   }
 
-  .caption .eng {
-    font-size: 10px;
-    opacity: 0.6;
-    margin-left: 4px;
+  #cv .cv-wrapper {
+    flex-direction: column;
   }
-}
 
-.home-image img {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-}
-section {
-  padding-top: 100px;
-}
-
-@media (max-width: 768px) {
-  .artwork-title {
-    font-size: 11px;
+  #cv .cv-text {
+    width: 100%;
   }
-}
 
+  /* MODAL */
+  #modal-img {
+    max-width: 90%;
+    max-height: 75%;
+  }
 
-
-
+  .modal-text {
+    bottom: 20px;
+    left: 20px;
+    right: 20p
