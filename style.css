@@ -389,36 +389,17 @@ nav button {
     flex-direction: column;
   }
 
-  /* 사진 + dot 전체 */
+  /* 사진 + dots 먼저 */
   #cv .cv-slider {
     order: 1;
-    margin-top: 0;
+    width: 100%;
     margin-bottom: 32px;
   }
 
-  /* CV 글 */
+  /* 텍스트는 아래 */
   #cv .cv-text {
     order: 2;
+    width: 100%;
   }
 
-  /* dot은 기본 위치 = 사진 아래 */
-  #cv .cv-dots {
-    margin-top: 12px;
-  }
 }
-
-@media (max-width: 768px) {
-  nav {
-    display: flex;
-    gap: 12px;
-  }
-
-  nav button {
-    margin-bottom: 0;
-  }
-}
-
-
-
-
-
