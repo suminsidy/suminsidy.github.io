@@ -185,6 +185,22 @@ function resetCvAutoSlide() {
 
 /* 시작 */
 startCvAutoSlide();
+let lastScroll = 0;
+const nav = document.querySelector('nav');
+
+window.addEventListener('scroll', () => {
+  if (window.innerWidth > 768) return;
+
+  const currentScroll = window.scrollY;
+
+  if (currentScroll > lastScroll && currentScroll > 50) {
+    nav.classList.add('hide'); // 아래로 스크롤 → 숨김
+  } else {
+    nav.classList.remove('hide'); // 위로 스크롤 → 등장
+  }
+
+  lastScroll = currentScroll;
+});
 </script>
 
 </body>
