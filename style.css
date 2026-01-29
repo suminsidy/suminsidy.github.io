@@ -68,13 +68,13 @@ nav button {
 #artwork {
   background: white;
   padding: 120px 60px;
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
+  gap: 20px;
 
   justify-items: center; /* 👈 핵심 */
   align-items: center;
@@ -132,13 +132,23 @@ nav button {
 /* 텍스트 */
 .modal-text {
   position: absolute;
-  bottom: 80px;
-  right: 80px;
+  bottom: 60px;
+  right: 50px;
   max-width: 300px;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 0.8;
   pointer-events: auto; /* 👈 클릭 가능 */
+  word-break: keep-all;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
+
+.unit {
+  white-space: nowrap;
+  display: inline-block;
+}
+
 
 /* ===== CV 최종 레이아웃 (이것만 사용) ===== */
 
@@ -146,7 +156,7 @@ nav button {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -229,4 +239,115 @@ nav button {
   opacity: 0.7;
   margin: 10px 0;
 }
+
+/* ===== MODAL 작품 정보 ===== */
+
+/* 작품 제목 */
+#modal-title {
+  font-size: 14px;      /* ← 여기서 크기 조절 */
+  font-weight: 400;
+  margin: 0 0 8px 0;
+}
+
+/* 재료 / 사이즈 캡션 */
+#modal-caption {
+  font-size: 13px;      /* ← 여기서 크기 조절 */
+  font-weight: 300;
+  line-height: 1.5;
+  opacity: 0.7;
+  margin: 0;
+}
+
+
+/* =========================
+   MOBILE (max-width: 768px)
+========================= */
+@media (max-width: 768px) {
+
+  /* 전체 여백 줄이기 */
+  #artwork, #cv {
+    padding: 80px 20px;
+  }
+
+  /* 네비게이션 */
+  nav {
+    top: 12px;
+    left: 12px;
+  }
+  nav button {
+    font-size: 14px;
+  }
+
+  /* HOME 타이틀 */
+  .home-title {
+    left: 20px;
+    bottom: 40px;
+  }
+  .home-title h1 {
+    font-size: 22px;
+  }
+
+  /* ARTWORK 그리드 → 2열 */
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* ===== CV ===== */
+  #cv .cv-wrapper {
+    flex-direction: column;
+  }
+
+  #cv .cv-left,
+  #cv .cv-slider {
+    width: 100%;
+  }
+
+  #cv .cv-slider {
+    margin-top: 40px;
+  }
+
+  #cv .cv-slides {
+    height: 360px;
+  }
+
+  /* 전시 전경 */
+  .installation {
+    grid-template-columns: 1fr;
+  }
+
+  /* 모달 이미지 */
+  #modal-img,
+  #installation-img {
+    max-width: 90%;
+    max-height: 75%;
+  }
+
+  /* 모달 텍스트 */
+  .modal-text {
+    right: 20px;
+    bottom: 30px;
+    max-width: 240px;
+  }
+
+  /* 슬라이드 화살표 */
+  .arrow.left { left: 12px; }
+  .arrow.right { right: 12px; }
+}
+
+@media (max-width: 768px) {
+
+  /* ===== MOBILE MENU ===== */
+  nav {
+    top: 16px;
+    left: 16px;
+  }
+
+  nav button {
+    font-size: 16px;          /* 글자 키우기 */
+    padding: 8px 6px;         /* 터치 영역 */
+    margin-bottom: 8px;
+  }
+}
+
 
