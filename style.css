@@ -409,3 +409,28 @@ nav button {
   }
 
 }
+/* Exhibition */
+
+#flatbirds {
+  background: white;
+  padding: 120px 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.exhibition-header{
+  text-align:center;
+  margin-bottom:80px;
+}
+
+.exhibition-header h1{
+  font-size:36px;
+  font-weight:400;
+  margin-bottom:16px;
+}
+
+.exhibition-header p{
+  font-size:15px;
+  line-height:1.7;
+  color:#666;
+}
