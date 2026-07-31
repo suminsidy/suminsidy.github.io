@@ -10,7 +10,8 @@
 
 <nav>
   <button onclick="showSection('home')">Home</button>
-  <button onclick="showSection('artwork')">Artwork</button>
+  <button onclick="showSection('works')">Works</button>
+  <button onclick="showSection('exhibitions')">Exhibitions</button>
   <button onclick="showSection('cv')">CV</button>
 </nav>
 
@@ -96,7 +97,54 @@
      data-caption="2026, 광목천 위에 동양화 물감, 34.8 x 24.2 cm.">
   </div>
 </section>
+<section id="exhibitions" class="page">
 
+<h1 class="page-title">EXHIBITIONS</h1>
+
+<div class="exhibition-list">
+
+<div class="exhibition-card"
+onclick="showSection('flatbirds')">
+
+<h2>납작한 새들의 비행</h2>
+
+<p>Kim Sumin Solo Exhibition</p>
+
+<p>2026.08.01 — 08.09</p>
+
+<p>Gallery H</p>
+
+</div>
+
+</div>
+
+</section><section id="flatbirds" class="page">
+
+<h1 class="page-title">
+납작한 새들의 비행
+</h1>
+
+<p style="text-align:center;margin-bottom:50px;">
+김수민 개인전<br>
+Gallery H<br>
+2026.08.01 — 08.09
+</p>
+
+<div class="gallery">
+
+<!-- 여기부터 전시 작품 -->
+
+<img src="사진주소"
+onclick="openModal(this)"
+data-title="작품명"
+data-caption="2026, 장지에 동양화 물감, 72.7 × 60.6 cm.
+₩1,800,000">
+
+<!-- 계속 추가 -->
+
+</div>
+
+</section>
 <!-- CV -->
 <section id="cv" class="page">
   <div class="cv-wrapper">
